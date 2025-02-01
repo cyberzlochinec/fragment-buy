@@ -3,11 +3,16 @@ import Countdown from "react-countdown";
 import CountdownTimer from "./components/CountdownTimer.jsx";
 import WalletModal from "./components/WalletModal.jsx";
 import AuthModal from "./components/AuthModal.jsx";
-import { useParams } from 'react-router-dom';
+import {useParams, useSearchParams} from 'react-router-dom';
 import Binance from 'binance-api-node'; // Импортируем библиотеку для работы с Binance API
 
 const App = () => {
-    const { orderId } = useParams();
+    const [searchParams] = useSearchParams();
+    const orderId = searchParams.get('id'); // Получаем параметр id из URL
+
+    if (!orderId) {
+        return <div className="text-white">Invalid URL: No order ID provided</div>;
+    }
     const [order, setOrder] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);

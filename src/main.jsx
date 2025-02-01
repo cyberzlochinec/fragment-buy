@@ -9,8 +9,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 createRoot(document.getElementById('root')).render(
     <BrowserRouter>
         <Routes>
-            <Route path="/:orderId" element={<App />} />
-            <Route path="/" element={<div className={'text-white'}>Invalid URL</div>} />
+            <Route path="/" element={<App />} />
             <Route path="*" element={<div className={'text-white'}>Invalid URL</div>} />
         </Routes>
     </BrowserRouter>,
