@@ -40,6 +40,7 @@ const App = () => {
 
     // Загружаем данные заказа
     useEffect(() => {
+        console.log(orderId)
         const fetchOrder = async () => {
             const BASE_URL = `https://b1b0-31-134-118-93.ngrok-free.app`;
             try {
